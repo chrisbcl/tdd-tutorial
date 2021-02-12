@@ -4,17 +4,23 @@ import RestaurantList from '../RestaurantList/RestaurantList';
 
 const RestaurantListPage = (): JSX.Element => {
     const [restaurantNames, setRestaurantNames] = useState<string[]>([]);
+    const [showRestaurantForm, setShowRestaurantForm] = useState(false);
 
-    const onAddRestaurant = (name: string) => {
+    const addRestaurant = (name: string) => {
         setRestaurantNames((prev) => [...prev, name]);
+        setShowRestaurantForm(false);
+    };
+
+    const showCreateRestaurantForm = () => {
+        setShowRestaurantForm(true);
     };
 
     return (
         <div>
-            <button data-testid='add-restaurant-button' type='button'>
+            <button data-testid='add-restaurant-button' type='button' onClick={showCreateRestaurantForm}>
                 Add Restaurant
             </button>
-            <CreateRestaurantForm onSave={onAddRestaurant} />
+            {showRestaurantForm ? <CreateRestaurantForm onSave={addRestaurant} /> : null}
             <RestaurantList restaurants={restaurantNames} />
         </div>
     );
