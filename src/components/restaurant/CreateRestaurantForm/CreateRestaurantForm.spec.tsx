@@ -11,6 +11,7 @@ describe('CreateRestaurantForm', () => {
             fireEvent.change(restaurantName, { target: { value: 'Named Restaurant' } });
 
             const saveButton = getByTestId('save-restaurant-button');
+
             fireEvent.click(saveButton);
 
             expect(onSave).toBeCalledTimes(1);

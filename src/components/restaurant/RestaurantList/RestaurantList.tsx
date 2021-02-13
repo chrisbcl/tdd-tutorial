@@ -1,15 +1,15 @@
+import { Collection, CollectionItem } from 'react-materialize';
+
 interface RestaurantListProps {
     restaurants: string[];
 }
 
 const RestaurantList = ({ restaurants }: RestaurantListProps): JSX.Element => (
-    <div>
-        <ul>
-            {restaurants.map((restaurantName) => (
-                <li key={restaurantName}>{restaurantName}</li>
-            ))}
-        </ul>
-    </div>
+    <Collection>
+        {restaurants.map((restaurantName) => (
+            <CollectionItem key={restaurantName}>{restaurantName}</CollectionItem>
+        ))}
+    </Collection>
 );
 
 export default RestaurantList;

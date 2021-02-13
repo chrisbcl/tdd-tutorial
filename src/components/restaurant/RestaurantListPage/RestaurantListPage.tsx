@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from 'react-materialize';
 import CreateRestaurantForm from '../CreateRestaurantForm/CreateRestaurantForm';
 import RestaurantList from '../RestaurantList/RestaurantList';
 
@@ -17,9 +18,9 @@ const RestaurantListPage = (): JSX.Element => {
 
     return (
         <div>
-            <button data-testid='add-restaurant-button' type='button' onClick={showCreateRestaurantForm}>
+            <Button data-testid='add-restaurant-button' onClick={showCreateRestaurantForm}>
                 Add Restaurant
-            </button>
+            </Button>
             {showRestaurantForm ? <CreateRestaurantForm onSave={addRestaurant} /> : null}
             <RestaurantList restaurants={restaurantNames} />
         </div>
