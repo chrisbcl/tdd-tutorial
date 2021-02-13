@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import CreateRestaurantForm from './CreateRestaurantForm';
+import 'materialize-css';
 
 describe('CreateRestaurantForm', () => {
     describe('clicking the save button', () => {
