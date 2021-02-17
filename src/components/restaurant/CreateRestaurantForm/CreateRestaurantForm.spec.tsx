@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import CreateRestaurantForm from './CreateRestaurantForm';
+import 'materialize-css';
 
 describe('CreateRestaurantForm', () => {
     describe('clicking the save button', () => {
@@ -11,6 +12,7 @@ describe('CreateRestaurantForm', () => {
             fireEvent.change(restaurantName, { target: { value: 'Named Restaurant' } });
 
             const saveButton = getByTestId('save-restaurant-button');
+
             fireEvent.click(saveButton);
 
             expect(onSave).toBeCalledTimes(1);

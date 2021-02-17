@@ -21,13 +21,13 @@ module.exports = {
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
 
     // The directory where Jest should output its coverage files
-    //coverageDirectory: "reports/jest/coverage/",
+    // coverageDirectory: "reports/jest/coverage/",
 
     // An array of regexp pattern strings used to skip coverage collection
     coveragePathIgnorePatterns: ['\\\\node_modules\\\\', '.(test|spec|d).(ts|tsx|js)'],
 
     // A list of reporter names that Jest uses when writing coverage reports
-    //coverageReporters: ["text", "html"],
+    // coverageReporters: ["text", "html"],
 
     // An object that configures minimum threshold enforcement for coverage results
     // coverageThreshold: null,
@@ -39,7 +39,7 @@ module.exports = {
     // forceCoverageMatch: [],
 
     // A path to a module which exports an async function that is triggered once before all test suites
-    //globalSetup: '<rootDir>/tests/setup.ts',
+    // globalSetup: '<rootDir>/tests/setup.ts',
 
     // A path to a module which exports an async function that is triggered once after all test suites
     // globalTeardown: null,

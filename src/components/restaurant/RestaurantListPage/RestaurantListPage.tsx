@@ -1,27 +1,34 @@
 import { useState } from 'react';
+import { Button, Modal, Row } from 'react-materialize';
 import CreateRestaurantForm from '../CreateRestaurantForm/CreateRestaurantForm';
 import RestaurantList from '../RestaurantList/RestaurantList';
 
 const RestaurantListPage = (): JSX.Element => {
     const [restaurantNames, setRestaurantNames] = useState<string[]>([]);
-    const [showRestaurantForm, setShowRestaurantForm] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const onAddRestaurantClick = () => {
+        setIsModalOpen(true);
+    };
 
     const addRestaurant = (name: string) => {
         setRestaurantNames((prev) => [...prev, name]);
-        setShowRestaurantForm(false);
-    };
-
-    const showCreateRestaurantForm = () => {
-        setShowRestaurantForm(true);
+        setIsModalOpen(false);
     };
 
     return (
         <div>
-            <button data-testid='add-restaurant-button' type='button' onClick={showCreateRestaurantForm}>
-                Add Restaurant
-            </button>
-            {showRestaurantForm ? <CreateRestaurantForm onSave={addRestaurant} /> : null}
-            <RestaurantList restaurants={restaurantNames} />
+            <Modal header='Create Restaurant' open={isModalOpen}>
+                <CreateRestaurantForm onSave={addRestaurant} />
+            </Modal>
+            <Row>
+                <Button data-testid='add-restaurant-button' onClick={onAddRestaurantClick}>
+                    Add Restaurant
+                </Button>
+            </Row>
+            <Row>
+                <RestaurantList restaurants={restaurantNames} />
+            </Row>
         </div>
     );
 };
